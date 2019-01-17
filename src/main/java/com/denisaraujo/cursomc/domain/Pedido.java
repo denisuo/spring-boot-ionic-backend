@@ -52,6 +52,20 @@ public class Pedido implements Serializable{
 		this.cliente = cliente;
 		this.enderecoDeEntrega = enderecoDeEntrega;
 	}
+	
+	public Double getValorTotal() {
+		Double soma = 0.0;
+
+		//método antigo de percorrer o laço
+		//for (ItemPedido ip : itens) {
+		//	soma += ip.getSubtotal();
+		//}
+		
+		//usando lambda java 8
+		soma = itens.stream().mapToDouble(itemAtual -> itemAtual.getSubtotal()).sum();
+		
+		return soma;
+	}
 
 	public Integer getId() {
 		return id;
