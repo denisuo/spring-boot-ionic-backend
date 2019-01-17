@@ -37,6 +37,7 @@ public class ResourceExceptionHandler {
 		//for(FieldError x : e.getBindingResult().getFieldErrors()) {
 		//	err.addError(x.getField(), x.getDefaultMessage());
 		//}
+		
 		//método novo java 8
 		e.getBindingResult().getFieldErrors().forEach(fieldError -> err.addError(fieldError.getField(), fieldError.getDefaultMessage()));
 		
